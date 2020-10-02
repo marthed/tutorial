@@ -1,6 +1,3 @@
-function App(model) {
-  model.addObserver(() => {
-    document.body.textContent = model.getNumberOfGuests();
-  });
-  document.body.textContent = model.getNumberOfGuests();
+function App({ model }) {
+  return h(SummaryPresentation, { guests: model.getNumberOfGuests() });
 }
