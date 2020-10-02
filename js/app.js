@@ -1,1 +1,3 @@
-document.body.textContent = "Hello World!";
+function App(model) {
+  document.body.textContent = model.getNumberOfGuests();
+}
