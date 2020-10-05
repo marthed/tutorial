@@ -1,8 +1,8 @@
-const SidebarPresentation = ({ guests, minusOne, plusOne }) => {
+const SidebarPresentation = ({ guests, setGuests }) => {
   return (
     <div>
-      <button onClick={minusOne}>-</button>
-      <button onClick={plusOne}>+</button>
+      <button onClick={() => setGuests(guests - 1)}>-</button>
+      <button onClick={() => setGuests(guests + 1)}>+</button>
     </div>
   );
 };
