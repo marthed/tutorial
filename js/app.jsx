@@ -1,8 +1,12 @@
 const App = ({ model }) => {
   return (
-    <div>
-      <Sidebar model={model}></Sidebar>
-      <Summary model={model}></Summary>
+    <div class="flexParent">
+      <div class="sidebar debug">
+        <Sidebar model={model}></Sidebar>
+      </div>
+      <div class="mainContent debug">
+        <Summary model={model}></Summary>
+      </div>
     </div>
   );
 };
