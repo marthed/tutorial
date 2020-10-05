@@ -5,21 +5,29 @@ body,
 }
 
 .debug {
-  border-style: solid;
-}
-
-.flexParent {
-  display: flex;
-  height: 100%;
-  width: 100%;
 }
 
 .sidebar {
-  width: 200px;
   padding: 20px;
+  margin: 2px;
 }
 
 .mainContent {
-  width: 100%;
   padding: 20px;
+  margin: 2px;
+}
+
+@media (min-width: 600px) {
+  .flexParent {
+    display: flex;
+    height: 100%;
+  }
+  .sidebar {
+    width: 200px;
+    padding: 20px;
+    margin: 2px;
+  }
+  .mainContent {
+    width: 100%;
+  }
 }

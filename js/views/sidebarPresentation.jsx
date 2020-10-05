@@ -4,7 +4,7 @@ const SidebarPresentation = ({ guests, setGuests }) => {
       <button onClick={() => setGuests(guests - 1)} disabled={guests < 2}>
         -
       </button>
-      {guests}
+      {` ${guests} `}
       <button onClick={() => setGuests(guests + 1)}>+</button>
     </div>
   );
