@@ -5,21 +5,26 @@ const DishSource = {
       headers: {
         "X-Mashape-KEY": API_KEY,
       },
-    }).catch((error) => {
-      throw new Error("Failed to fetch dishes");
+    }).then((response) => {
+      if (response.status !== 200) {
+        throw new Error("Failed to fetch dishes");
+      }
+      return response;
     });
   },
 
   searchDishes({ type, query }) {
     const params = { type, query };
     const slug = Object.keys(params).reduce((acc, paramName) => {
-      const paramString = `${paramName}=${params[paramName]}`;
+      const paramString = params[paramName]
+        ? `${paramName}=${params[paramName]}`
+        : "";
       return acc.length ? `&${paramString}` : paramString;
     }, "");
 
-    return this.apiCall(`recipes/search?${slug}`).then((response) =>
-      response.json()
-    );
+    return this.apiCall(`recipes/search${slug ? "?" + slug : ""}`)
+      .then((response) => response.json())
+      .then((data) => data.results);
   },
 
   getDishDetails(id) {

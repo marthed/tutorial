@@ -1,1 +1,1 @@
-const App = ({ model }) => <Sidebar model={model} />;
+const App = ({ model }) => <Search />;
