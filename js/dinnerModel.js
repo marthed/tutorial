@@ -4,8 +4,13 @@ class DinnerModel {
     this.subscribers = [];
   }
 
-  addObserver(callback) {
-    this.subscribers = this.subscribers.concat(callback);
+  removeObserver(observer) {
+    this.subscribers = this.subscribers.filter((o) => o === observer);
+  }
+
+  addObserver(observer) {
+    this.subscribers = this.subscribers.concat(observer);
+    return this.removeObserver(observer);
   }
 
   notifyObservers() {
