@@ -35,4 +35,8 @@ class DinnerModel {
   getNumberOfGuests() {
     return this.numberOfGuests;
   }
+
+  getDishDetails(id) {
+    return DishSource.getDishDetails(id);
+  }
 }
