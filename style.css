@@ -30,3 +30,23 @@ body,
     width: 100%;
   }
 }
+
+.searchPresentation {
+  overflow-y: scroll;
+}
+
+.searchResult {
+  margin: 4px;
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+.searchResult_image_container {
+  margin-bottom: 4px;
+}
+
+.searchResult_image_container img {
+  height: 100px;
+}
