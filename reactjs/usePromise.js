@@ -11,6 +11,6 @@ const usePromise = (promise) => {
     } else {
       setError(new Error(`Promise is ${promise}`));
     }
-  }, [setData, setError, promise]);
+  }, [promise]);
   return [data, error];
 };

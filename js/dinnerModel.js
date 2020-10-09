@@ -10,7 +10,7 @@ class DinnerModel {
 
   addObserver(observer) {
     this.subscribers = this.subscribers.concat(observer);
-    return this.removeObserver(observer);
+    return () => this.removeObserver(observer);
   }
 
   notifyObservers() {

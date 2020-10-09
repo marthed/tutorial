@@ -45,8 +45,28 @@ body,
 
 .searchResult_image_container {
   margin-bottom: 4px;
+  overflow: hidden;
 }
 
 .searchResult_image_container img {
   height: 100px;
+}
+
+.detailsPresentation {
+  max-width: 400px;
+  margin: 12px 2px 12px 0px;
+}
+
+.detailsPresentation img {
+  max-width: 400px;
+}
+
+.detailsPresentation_price {
+  margin: 6px 0px 6px 0px;
+  padding: 20px 0px 20px 0px;
+  border-bottom: grey 1px solid;
+}
+
+.detailsPresentation li {
+  margin: 3px 0px;
 }
