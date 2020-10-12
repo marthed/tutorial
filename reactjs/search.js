@@ -1,4 +1,4 @@
-const Search = () => {
+const Search = ({ model }) => {
   const [type, setType] = React.useState("");
   const [query, setQuery] = React.useState("");
   const [promise, setPromise] = React.useState();
@@ -15,6 +15,9 @@ const Search = () => {
       onSearch: () => setPromise(DishSource.searchDishes({ type, query })),
     }),
     promiseNoData(promise, error, data) ||
-      h(SearchResultPresentation, { searchResults: data })
+      h(SearchResultPresentation, {
+        searchResults: data,
+        dishChosen: (dish) => model.setCurrentDish(dish.id),
+      })
   );
 };

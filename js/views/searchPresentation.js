@@ -14,11 +14,15 @@ const SearchFormPresentation = ({ onSearch, onType, onText }) => {
   );
 };
 
-const SearchResultPresentation = ({ searchResults }) => {
+const SearchResultPresentation = ({ searchResults, dishChosen }) => {
   return (
     <div class="searchPresentation">
       {searchResults.map((dish) => (
-        <span key={dish.id} class="searchResult">
+        <span
+          key={dish.id}
+          onClick={() => dishChosen(dish)}
+          class="searchResult"
+        >
           <div class="searchResult_image_container">
             <img
               src={`https://spoonacular.com/recipeImages/${dish.image}`}

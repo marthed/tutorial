@@ -24,7 +24,7 @@ body,
     height: 100%;
   }
   .sidebar {
-    width: 200px;
+    width: 250px;
   }
   .mainContent {
     width: 100%;
@@ -69,4 +69,30 @@ body,
 
 .detailsPresentation li {
   margin: 3px 0px;
+}
+
+.sidebarPresentation_dish {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.searchPresentation_dish > element {
+  padding: 4px;
+}
+
+.sidebarPresentation_dish_buttonContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+}
+
+.sidebarPresentation_dish_infoContainer {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.sidebarPresentation_dish_infoContainer td {
+  width: 1/3;
+  padding: 4px;
 }
