@@ -11,7 +11,9 @@ const App = ({ model }) => {
         <div class="debug">
           <Details model={model} />
         </div>
-        <Summary model={model} />
+        <Show hash="#summary">
+          <Summary model={model} />
+        </Show>
       </div>
     </React.Fragment>
   );
