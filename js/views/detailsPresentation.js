@@ -9,10 +9,7 @@ const DetailsPresentation = ({
   h,
 }) => {
   const [navCallback, navLabel] = cancel;
-  const dishPrice = React.useMemo(() => getDishPrice(dish, guests), [
-    dish,
-    guests,
-  ]);
+  const dishPrice = getDishPrice(dish, guests);
 
   return (
     <div class="detailsPresentation">

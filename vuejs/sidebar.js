@@ -7,7 +7,7 @@ const Sidebar = {
       guests: model.getNumberOfGuests(),
       dishes: model.getMenu(),
       setGuests: (x) => model.setNumberOfGuests(x),
-      removeDish: (dish) => model.removeDish(dish.id),
+      removeDish: (dish) => model.removeFromMenu(dish),
       dishChosen: (dish) => {
         model.setCurrentDish(dish.id);
         dishChoice();

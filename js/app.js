@@ -20,41 +20,37 @@ function defaultRoute() {
 
 defaultRoute();
 
-const App = ({ model, h }) => (
-  <div>
-    <Sidebar model={model} h={h} resultChoise={dishChoise} />
-    <Show hash="#summary">
-      <Summary model={model} h={h} nav={backToSearch} />
-    </Show>
-  </div>
-);
+const App = ({ model, h }) => {
+  // React.useEffect(() => {
+  //   window.addEventListener("hashchange", defaultRoute);
+  //   return () => window.removeEventListener("hashchange", defaultRoute);
+  // }, []);
 
-// const App = ({ model }) => {
-//   React.useEffect(() => {
-//     window.addEventListener("hashchange", defaultRoute);
-//     return () => window.removeEventListener("hashchange", defaultRoute);
-//   }, []);
-
-//   return (
-//     <React.Fragment>
-//       <div class="sidebar debug">
-//         <Sidebar model={model} resultChoice={dishChoise} />
-//       </div>
-//       <div class="mainContent">
-//         <div class="debug">
-//           <Show hash="#search">
-//             <Search model={model} nav={summaryNav} resultChoice={dishChoise} />
-//           </Show>
-//         </div>
-//         <div class="debug">
-//           <Show hash="#details">
-//             <Details model={model} cancel={backToSearch} ok={addToMenu} />
-//           </Show>
-//         </div>
-//         <Show hash="#summary">
-//           <Summary model={model} nav={backToSearch} />
-//         </Show>
-//       </div>
-//     </React.Fragment>
-//   );
-// };
+  return (
+    <React.Fragment>
+      <div class="sidebar debug">
+        <Sidebar model={model} resultChoice={dishChoise} h={h} />
+      </div>
+      <div class="mainContent">
+        <div class="debug">
+          <Show hash="#search">
+            <Search
+              model={model}
+              nav={summaryNav}
+              resultChoice={dishChoise}
+              h={h}
+            />
+          </Show>
+        </div>
+        <div class="debug">
+          <Show hash="#details">
+            <Details model={model} cancel={backToSearch} ok={addToMenu} h={h} />
+          </Show>
+        </div>
+        <Show hash="#summary">
+          <Summary model={model} nav={backToSearch} h={h} />
+        </Show>
+      </div>
+    </React.Fragment>
+  );
+};
