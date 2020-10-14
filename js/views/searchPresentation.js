@@ -1,4 +1,6 @@
-const SearchFormPresentation = ({ onSearch, onType, onText }) => {
+const SearchFormPresentation = ({ onSearch, onType, onText, nav }) => {
+  const [navCallback, navLabel] = nav;
+
   const options = ["starter", "main course", "dessert"].map((option) => (
     <option key={option}>{option}</option>
   ));
@@ -10,6 +12,7 @@ const SearchFormPresentation = ({ onSearch, onType, onText }) => {
         {options}
       </select>
       <button onClick={() => onSearch()}>onSearch</button>
+      <button onClick={() => navCallback()}>{navLabel}</button>
     </div>
   );
 };

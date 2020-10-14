@@ -4,7 +4,10 @@ const DetailsPresentation = ({
   price,
   dishAdded,
   isDishInMenu,
+  cancel,
+  addLabel,
 }) => {
+  const [navCallback, navLabel] = cancel;
   const dishPrice = React.useMemo(() => getDishPrice(dish, guests), [
     dish,
     guests,
@@ -12,8 +15,9 @@ const DetailsPresentation = ({
 
   return (
     <div class="detailsPresentation">
+      <button onClick={() => navCallback()}>{navLabel}</button>
       <button disabled={isDishInMenu} onClick={() => dishAdded(dish)}>
-        Add dish to menu
+        {addLabel}
       </button>
       <h1 class="detailsPresentation_title">{dish.title}</h1>
       <img src={dish.image} />
