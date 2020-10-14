@@ -6,20 +6,35 @@ const backToSearch = [
 
 const addToMenu = [() => (window.location.hash = "#search"), "Add to menu"];
 
+const dishChoise = () => (window.location.hash = "#details");
+
+function defaultRoute() {
+  if (
+    !["#search", "#summary", "#details"].find(
+      (knowRoute) => knowRoute === window.location.hash
+    )
+  ) {
+    window.location.hash = "#search";
+  }
+}
+
+defaultRoute();
+
 const App = ({ model }) => {
+  React.useEffect(() => {
+    window.addEventListener("hashchange", defaultRoute);
+    return () => window.removeEventListener("hashchange", defaultRoute);
+  }, []);
+
   return (
     <React.Fragment>
       <div class="sidebar debug">
-        <Sidebar model={model} />
+        <Sidebar model={model} resultChoice={dishChoise} />
       </div>
       <div class="mainContent">
         <div class="debug">
           <Show hash="#search">
-            <Search
-              model={model}
-              nav={summaryNav}
-              resultChoice={() => (window.location.hash = "#details")}
-            />
+            <Search model={model} nav={summaryNav} resultChoice={dishChoise} />
           </Show>
         </div>
         <div class="debug">

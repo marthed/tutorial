@@ -18,7 +18,13 @@ function compareDishes(a, b) {
   return 0;
 }
 
-const SidebarPresentation = ({ guests, setGuests, dishes, removeDish }) => {
+const SidebarPresentation = ({
+  guests,
+  setGuests,
+  dishes,
+  removeDish,
+  dishChosen,
+}) => {
   const sortedDishes = dishes.sort(compareDishes);
 
   const totalPrice = getMenuPrice(dishes, guests);
@@ -38,7 +44,17 @@ const SidebarPresentation = ({ guests, setGuests, dishes, removeDish }) => {
           <table class="sidebarPresentation_dish_infoContainer">
             <tbody>
               <tr>
-                <td>{dish.title}</td>
+                <td>
+                  <a
+                    href=""
+                    onClick={(event) => {
+                      event.preventDefault();
+                      dishChosen(dish);
+                    }}
+                  >
+                    {dish.title}
+                  </a>
+                </td>
                 <td>{dish.dishTypes[0]}</td>
                 <td>{getDishPrice(dish, guests)}</td>
               </tr>
