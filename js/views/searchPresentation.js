@@ -1,4 +1,4 @@
-const SearchFormPresentation = ({ onSearch, onType, onText, nav }) => {
+const SearchFormPresentation = ({ onSearch, onType, onText, nav, h }) => {
   const [navCallback, navLabel] = nav;
 
   const options = ["starter", "main course", "dessert"].map((option) => (
@@ -17,7 +17,7 @@ const SearchFormPresentation = ({ onSearch, onType, onText, nav }) => {
   );
 };
 
-const SearchResultPresentation = ({ searchResults, dishChosen }) => {
+const SearchResultPresentation = ({ searchResults, dishChosen, h }) => {
   return (
     <div class="searchPresentation">
       {searchResults.map((dish) => (

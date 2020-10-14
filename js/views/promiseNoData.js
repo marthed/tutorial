@@ -1,4 +1,4 @@
-const promiseNoData = (promise, error, data) => {
+const promiseNoData = (promise, error, data, h) => {
   return (
     (!promise && "no data") ||
     (error && <h1>{error.message}</h1>) ||

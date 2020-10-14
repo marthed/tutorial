@@ -19,6 +19,7 @@ function compareDishes(a, b) {
 }
 
 const SidebarPresentation = ({
+  h,
   guests,
   setGuests,
   dishes,

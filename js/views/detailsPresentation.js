@@ -6,6 +6,7 @@ const DetailsPresentation = ({
   isDishInMenu,
   cancel,
   addLabel,
+  h,
 }) => {
   const [navCallback, navLabel] = cancel;
   const dishPrice = React.useMemo(() => getDishPrice(dish, guests), [

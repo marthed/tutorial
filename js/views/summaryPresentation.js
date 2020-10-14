@@ -1,4 +1,4 @@
-const SummaryPresentation = ({ guests, dishes, nav }) => {
+const SummaryPresentation = ({ guests, dishes, nav, h }) => {
   const [navCallback, navLabel] = nav;
   const totalPrice = getMenuPrice(dishes, guests);
   return (
