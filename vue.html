@@ -13,7 +13,6 @@
         window["babel-plugin-transform-vue-jsx"]
       );
     </script>
-    <script src="http://www.csc.kth.se/~cristi/hyperscript/0.2.js"></script>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="js/apiConfig.js"></script>
     <script src="js/DishSource.js"></script>
@@ -27,6 +26,7 @@
       data-plugins="transform-vue-jsx"
       data-presets="es2016"
     ></script>
+    <script src="vuejs/searchForm.js"></script>
     <script
       src="js/views/sidebarPresentation.js"
       type="text/jsx"
@@ -57,7 +57,7 @@
       data-presets="es2016"
     ></script>
     <script
-      src="js/app.js"
+      src="vuejs/app.js"
       type="text/jsx"
       data-plugins="transform-vue-jsx"
       data-presets="es2016"
@@ -70,7 +70,9 @@
       const model= readModel();
       new Vue({
          data(){ return {model}; },
-         render(h){return App({model:this.model, h})}
+         render(h){
+           return h(App, { props: { model: this.model } });
+          }
       }).$mount("#app");
     </script>
   </body>

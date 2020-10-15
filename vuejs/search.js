@@ -16,28 +16,23 @@ const Search = {
   },
   render(h) {
     return h("div", {}, [
-      SearchFormPresentation({
-        h,
-        onText: (t) => {
-          this.text = t;
-        },
-        onType: (ty) => {
-          this.type = ty;
-        },
-        onSearch: () => {
-          this.promise = DishSource.searchDishes({
-            type: this.type,
-            query: this.text,
-          });
-          this.promise
-            .then((data) => {
-              this.data = data;
-            })
-            .catch((error) => {
-              this.error = error;
+      h(SearchForm, {
+        props: {
+          onSearch: (text, type) => {
+            this.promise = DishSource.searchDishes({
+              type: type,
+              query: text,
             });
+            this.promise
+              .then((data) => {
+                this.data = data;
+              })
+              .catch((error) => {
+                this.error = error;
+              });
+          },
+          nav: this.nav,
         },
-        nav: this.nav,
       }),
       promiseNoData(this.promise, this.error, this.data, h) ||
         SearchResultPresentation({

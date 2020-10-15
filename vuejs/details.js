@@ -25,6 +25,7 @@ const Details = {
     },
   },
   render(h) {
+    console.log("Render details");
     const { data, error, promise, ok, cancel } = this;
     const { guests, dishes } = this.model;
     const [addNav, addLabel] = ok;

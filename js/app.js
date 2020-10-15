@@ -21,10 +21,10 @@ function defaultRoute() {
 defaultRoute();
 
 const App = ({ model, h }) => {
-  // React.useEffect(() => {
-  //   window.addEventListener("hashchange", defaultRoute);
-  //   return () => window.removeEventListener("hashchange", defaultRoute);
-  // }, []);
+  React.useEffect(() => {
+    window.addEventListener("hashchange", defaultRoute);
+    return () => window.removeEventListener("hashchange", defaultRoute);
+  }, []);
 
   return (
     <React.Fragment>
