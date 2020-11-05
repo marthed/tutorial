@@ -79,7 +79,7 @@ class DinnerModel {
   }
 
   myExampleFunction(example) {
-    console.log("some new code")
+    console.log("example: ", example);
     this.example = example;
   }
 
