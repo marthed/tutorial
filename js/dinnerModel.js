@@ -77,4 +77,9 @@ class DinnerModel {
     this.currentDish = id;
     this.notifyObservers();
   }
+
+  myExampleFunction(example) {
+    this.example = example;
+  }
+
 }
