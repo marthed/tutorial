@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+<script>
+  // Babel generates calls to React.createElement by default, so we redefine that:
+  const React={createElement:Vue.h};
+</script>
+</head>
+
+<body>
+<div id="app"></div>
+</body>
+<script src="js/DinnerModel.js" type="text/jsx"></script>
+<script src="js/views/summaryView.js" type="text/jsx"></script>
+<script src="js/views/searchView.js" type="text/jsx"></script>
+<script src="js/views/sidebarView.js" type="text/jsx"></script>
+<script src="vuejs/sidebarPresenter.js" type="text/jsx"></script>
+<script src="vuejs/summaryPresenter.js" type="text/jsx"></script>
+<script src="app.js" type="text/jsx"></script>
+
+<script type="text/jsx">
+
+const TopLevelModel = {
+  data() {
+    return { model: new DinnerModel()}
+  },
+  render() {
+    return (<App model={this.model} />)
+  }
+}
+
+
+Vue.render(
+  <App model={new DinnerModel()} />
+,  document.getElementById("app")
+);
+</script>
+</html>
