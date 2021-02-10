@@ -2,6 +2,7 @@
 <head>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script src="https://unpkg.com/vue@next/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vuex@next/dist/vuex.global.js"></script>
 <script>
   // Babel generates calls to React.createElement by default, so we redefine that:
   const React={createElement:Vue.h};
@@ -21,19 +22,19 @@
 
 <script type="text/jsx">
 
-const TopLevelModel = {
-  data() {
-    return { model: new DinnerModel()}
-  },
-  render() {
-    return (<App model={this.model} />)
-  }
-}
+  const store = new Vuex.Store({
+    state: { numberOfGuests: 2 },
+    mutations: {
+      setNumberOfGuests(state, n) {
+        state.numberOfGuests = n;
+      }
+    }
+  });
 
+  const app = Vue.createApp(App)
 
-Vue.render(
-  <App model={new DinnerModel()} />
-,  document.getElementById("app")
-);
+  app.use(store);
+  app.mount("#app")
+
 </script>
 </html>

@@ -1,4 +1,11 @@
 //vuejs/summaryPresenter.js
-function SummaryPresenter(props){ 
-  return <SummaryView persons={props.model.numberOfGuests} />
+const SummaryPresenter = {
+  computed: {
+    guests () {
+      return this.$store.state.numberOfGuests;
+    }
+  },
+  render() {
+    return <SummaryView persons={this.guests} />
+  }
 }
